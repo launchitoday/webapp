@@ -1,39 +1,49 @@
 import { motion } from 'framer-motion';
 import { AnimatedText } from '@/components/AnimatedText';
 import { ProjectShowcase } from '@/components/ProjectShowcase';
+import { SiAutodeskmaya } from "react-icons/si";
+import { PiCodesandboxLogoBold } from "react-icons/pi";
+import { PiBehanceLogoFill } from "react-icons/pi";
+import { RxModulzLogo } from "react-icons/rx";
+import { BiLogoMastodon } from "react-icons/bi";
+
+
+
+
+
 
 const clientLogos = [
-  { name: 'Awwwards', icon: 'A' },
-  { name: 'CSS Design', icon: 'C' },
-  { name: 'FWA', icon: 'F' },
-  { name: 'Webby', icon: 'W' },
-  { name: 'Lovie', icon: 'L' },
+  { name: 'Awwwards', icon: <SiAutodeskmaya size={36} /> },
+  { name: 'CSS Design', icon: <PiCodesandboxLogoBold size={36} /> },
+  { name: 'FWA', icon: <PiBehanceLogoFill size={36} /> },
+  { name: 'Webby', icon: <RxModulzLogo size={36} /> },
+  { name: 'Lovie', icon: <BiLogoMastodon size={36} /> },
 ];
 
 export function Hero() {
   return (
     <section className="min-h-screen pt-28 lg:pt-32 pb-20 px-6 lg:px-12 bg-[#F5F5F5]">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="max-w-full lg:mx-28">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-12 items-center lg:mt-10">
           {/* Left Column - Text Content */}
-          <div className="order-2 lg:order-1">
+          <div className="order-1 lg:order-1 flex justify-center items-center flex-col">
             {/* Label */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xs font-medium tracking-[0.2em] uppercase text-gray-500 mb-5"
+              className="text-xs font-medium tracking-[0.2em] uppercase text-gray-500 mb-5 "
             >
               We are a web development agency
             </motion.p>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[1.0] mb-8">
-              <AnimatedText text="Building MVPs" delay={0.3} />
+            <h1 className="text-4xl text-[15vw] md:text-[6.25vw] lg:text-[6.25vw] xl:text-[6.25vw] font-medium leading-[1.0] mb-8">
+              <AnimatedText text="Building" delay={0.3} className='ml-10 lg:ml-0' />
               <br />
-              <AnimatedText text="and production-" delay={0.5} />
+              <AnimatedText text="MVPs and" delay={0.5} className='lg:-ml-20'/>
               <br />
-              <AnimatedText text="ready apps" delay={0.7} />
+              <AnimatedText text="prod apps" delay={0.7} className='ml-10 lg:ml-4' />
             </h1>
 
             {/* Subheadline */}
@@ -41,7 +51,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="text-xs font-medium tracking-[0.15em] uppercase text-gray-400 mb-12"
+              className="text-xs font-medium tracking-[0.15em] uppercase text-gray-400 mb-12 "
             >
               Rapid prototyping, excellent craft
             </motion.p>
@@ -51,7 +61,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.1 }}
-              className="flex items-center gap-6 md:gap-8"
+              className="flex items-center gap-8 md:gap-8 lg:gap-16"
             >
               {clientLogos.map((logo, index) => (
                 <motion.div
@@ -72,7 +82,7 @@ export function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="order-1 lg:order-2"
+            className="order-2 lg:order-2"
           >
             <ProjectShowcase />
           </motion.div>

@@ -32,7 +32,7 @@ export function ProjectShowcase() {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
-      className="relative w-full aspect-square max-w-[520px] mx-auto lg:mx-0 lg:ml-auto rounded-3xl overflow-hidden bg-gray-100 cursor-none"
+      className="relative w-full aspect-square max-w-[600px] mx-auto lg:mx-0 lg:ml-auto rounded-3xl overflow-hidden bg-gray-100 cursor-none"
     >
       <AnimatePresence mode="wait">
         <motion.div

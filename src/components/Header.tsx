@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
+import { IoRocketOutline } from "react-icons/io5";
+
+
 const navLinks = [
   { label: 'work', href: '#work' },
   { label: 'services', href: '#services' },
@@ -34,28 +37,32 @@ export function Header() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-20 lg:h-24">
-          {/* Logo */}
+      <div className="mx-auto px-6 lg:px-12">
+        <div className="relative flex items-center h-20 lg:h-24">
+          
+          {/* Left - Logo */}
           <motion.a
             href="#"
-            className="flex items-center gap-3"
+            className="flex items-center gap-3 z-10"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">L</span>
+            <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center">
+              <span className="text-white font-bold text-xl"><IoRocketOutline />
+</span>
             </div>
-            <span className="text-lg font-medium hidden sm:block">launchit.today</span>
+            <span className="text-xl lg:text-[2.5vw] font-semibold hidden sm:block">
+              launchit today
+            </span>
           </motion.a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* Center - Navigation */}
+          <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="relative text-base font-medium text-black hover:opacity-70 transition-opacity group"
+                className="relative text-[2.5vw] font-medium text-black hover:opacity-70 transition-opacity group"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full" />
@@ -63,26 +70,28 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Right Section */}
-          <div className="flex items-center gap-4">
-            <button className="hidden sm:flex w-10 h-10 items-center justify-center border border-black/20 rounded-full text-sm font-medium hover:bg-black hover:text-white transition-colors">
-              EN
+          {/* Right - Actions */}
+          <div className="ml-auto flex items-center gap-5 z-10">
+            <button className="hidden sm:flex w-11 h-11 items-center justify-center border border-black/20 rounded-2xl text-[1vw] font-medium hover:bg-black hover:text-white transition-colors">
+              Eng
             </button>
+
             <a
               href="#contact"
-              className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-transparent border border-black rounded-full text-black text-base font-medium hover:bg-black hover:text-white transition-all duration-300"
+              className="hidden md:flex items-center gap-2 px-6 py-3 bg-transparent text-[#4c32ff] text-[2.5vw] font-medium hover:bg-black hover:text-white transition-all duration-300"
             >
               contact us
             </a>
-            
+
             {/* Mobile Menu Button */}
             <button
               className="lg:hidden p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
           </div>
+
         </div>
       </div>
 
@@ -109,7 +118,7 @@ export function Header() {
           ))}
           <a
             href="#contact"
-            className="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-full text-base font-medium mt-2"
+            className="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-full text-[2.5vw] font-medium mt-2"
             onClick={() => setMobileMenuOpen(false)}
           >
             contact us
